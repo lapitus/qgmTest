@@ -16,8 +16,11 @@ pipeline {
                     yw.doStuff()
 
 
-                    def aaa = new GlobalVars()
-                    echo aaa.foo
+                    def qgManager = new QgManager(this)
+
+                    qgManager.checkFlag("sast")
+
+                    println(qgManager.getFlagStatus())
                 }
             }
         }
