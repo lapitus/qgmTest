@@ -19,6 +19,7 @@ pipeline {
                     def qgManager = new QgManager(this)
 
                     qgManager.checkFlag("sast")
+                    qgManager.checkFlag("meta")
 
                     println(qgManager.getFlagStatus())
                 }
