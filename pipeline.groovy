@@ -1,4 +1,7 @@
 @Library('way4sharedlib') _
+
+def qgManager = new QgManager(this)
+
 pipeline {
     agent { node { label 'master' } }
 
@@ -23,8 +26,6 @@ pipeline {
                             def yw = new YamlWorker(this)
                             yw.doStuff()
 
-
-                            def qgManager = new QgManager(this)
 
                             qgManager.checkFlag("sast")
                             qgManager.checkFlag("meta")
