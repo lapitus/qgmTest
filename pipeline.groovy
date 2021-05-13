@@ -4,7 +4,7 @@ def qgManager = new QgManager(this)
 
 pipeline {
     agent { node { label 'master' } }
-    options { timestamps () }
+    options { timestamps() }
 
     stages {
 
@@ -15,9 +15,8 @@ pipeline {
         }
 
 
-
-            stage("prl stages") {
-                parallel {
+        stage("prl stages") {
+            parallel {
 
                 stage('make classes') {
 
@@ -37,7 +36,7 @@ pipeline {
 
                 stage('Parallel1') {
                     steps {
-                        script{
+                        script {
                             qgManager.checkFlag("sast")
                         }
                     }
@@ -45,7 +44,7 @@ pipeline {
 
                 stage('Parallel2') {
                     steps {
-                        script{
+                        script {
                             qgManager.checkFlag("ci")
                         }
                     }
@@ -57,7 +56,7 @@ pipeline {
 
         stage("final stage") {
             steps {
-                script{
+                script {
                     println(qgManager.getFlagStatus())
                 }
             }
