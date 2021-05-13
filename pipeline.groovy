@@ -4,6 +4,7 @@ def qgManager = new QgManager(this)
 
 pipeline {
     agent { node { label 'master' } }
+    options { timestamps () }
 
     stages {
 
