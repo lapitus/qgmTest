@@ -1,5 +1,4 @@
 @Library('way4sharedlib')_
-asd
 pipeline {
     agent { node { label 'master' } }
     stages {
@@ -16,7 +15,6 @@ pipeline {
                     def yw = new YamlWorker(this)
                     yw.doStuff()
 
-                    aa
 
                     def aaa = new GlobalVars()
                     echo aaa.foo
