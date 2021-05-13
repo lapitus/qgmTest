@@ -8,5 +8,16 @@ pipeline {
                 echo "hello!"
             }
         }
+
+        stage('make classes') {
+            script{
+                echo 'Making classes2'
+                def yw = new YamlWorker(this)
+                yw.doStuff()
+
+                def aaa = new GlobalVars()
+                echo aaa.foo
+            }
+        }
     }
 }
