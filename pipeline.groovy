@@ -27,10 +27,8 @@ pipeline {
                             yw.doStuff()
 
 
-                            qgManager.checkFlag("sast")
                             qgManager.checkFlag("meta")
 
-                            println(qgManager.getFlagStatus())
 
                         }
                     }
@@ -38,18 +36,25 @@ pipeline {
 
                 stage('Parallel 1') {
                     steps {
-                        echo "hello!"
+                        qgManager.checkFlag("sast")
                     }
                 }
 
                 stage('Parallel 2') {
                     steps {
-                        echo "hello!"
+                        qgManager.checkFlag("ci")
                     }
                 }
 
             }
 
+        }
+
+        stage("final stage") {
+            steps {
+
+                println(qgManager.getFlagStatus())
+            }
         }
     }
 }
