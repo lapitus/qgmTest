@@ -34,7 +34,7 @@ pipeline {
                     }
                 }
 
-                stage('Parallel 1') {
+                stage('Parallel1') {
                     steps {
                         script{
                             qgManager.checkFlag("sast")
@@ -42,7 +42,7 @@ pipeline {
                     }
                 }
 
-                stage('Parallel 2') {
+                stage('Parallel2') {
                     steps {
                         script{
                             qgManager.checkFlag("ci")
