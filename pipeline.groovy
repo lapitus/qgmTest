@@ -23,13 +23,7 @@ pipeline {
                     steps {
                         script {
                             echo 'Making classes2'
-                            def yw = new YamlWorker(this)
-                            yw.doStuff()
-
-
                             qgManager.checkFlag("meta")
-
-
                         }
                     }
                 }
@@ -51,7 +45,6 @@ pipeline {
                 }
 
             }
-
         }
 
         stage("final stage") {
