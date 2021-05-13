@@ -1,4 +1,4 @@
-@Library('way4sharedlib')_
+@Library('way4sharedlib') _
 pipeline {
     agent { node { label 'master' } }
 
@@ -12,40 +12,43 @@ pipeline {
 
 
         parallel {
-            stage('make classes') {
-
-                steps {
-                    script {
-                        echo 'Making classes2'
-                        def yw = new YamlWorker(this)
-                        yw.doStuff()
+            stage("prl stages") {
 
 
-                        def qgManager = new QgManager(this)
+                stage('make classes') {
 
-                        qgManager.checkFlag("sast")
-                        qgManager.checkFlag("meta")
+                    steps {
+                        script {
+                            echo 'Making classes2'
+                            def yw = new YamlWorker(this)
+                            yw.doStuff()
 
-                        println(qgManager.getFlagStatus())
 
+                            def qgManager = new QgManager(this)
+
+                            qgManager.checkFlag("sast")
+                            qgManager.checkFlag("meta")
+
+                            println(qgManager.getFlagStatus())
+
+                        }
                     }
                 }
-            }
 
-            stage('Parallel 1') {
-                steps {
-                    echo "hello!"
+                stage('Parallel 1') {
+                    steps {
+                        echo "hello!"
+                    }
                 }
-            }
 
-            stage('Parallel 2') {
-                steps {
-                    echo "hello!"
+                stage('Parallel 2') {
+                    steps {
+                        echo "hello!"
+                    }
                 }
+
             }
 
         }
-
-
     }
 }
