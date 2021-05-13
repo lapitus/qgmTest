@@ -36,7 +36,9 @@ pipeline {
 
                 stage('Parallel 1') {
                     steps {
-                        qgManager.checkFlag("sast")
+                        script{
+                            qgManager.checkFlag("sast")
+                        }
                     }
                 }
 
@@ -54,8 +56,9 @@ pipeline {
 
         stage("final stage") {
             steps {
-
-                println(qgManager.getFlagStatus())
+                script{
+                    println(qgManager.getFlagStatus())
+                }
             }
         }
     }
