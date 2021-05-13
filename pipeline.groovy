@@ -42,7 +42,9 @@ pipeline {
 
                 stage('Parallel 2') {
                     steps {
-                        qgManager.checkFlag("ci")
+                        script{
+                            qgManager.checkFlag("ci")
+                        }
                     }
                 }
 
