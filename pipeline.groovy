@@ -22,9 +22,9 @@ pipeline {
                     qgManager.checkFlag("meta")
 
                     println(qgManager.getFlagStatus())
-                    def response = httpRequest 'https://ya.ru'
-                    println("Status: " + response.status)
-                    println("Content: " + response.content)
+//                    def response = httpRequest 'https://ya.ru'
+//                    println("Status: " + response.status)
+//                    println("Content: " + response.content)
                 }
             }
         }
