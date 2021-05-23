@@ -51,7 +51,8 @@ pipeline {
             steps {
                 script {
                     println(qgManager.getFlagStatus())
-                    bat 'echo %PATH%'
+                    bat "git log --pretty=format:'%h' -n 1"
+                    
                 }
             }
         }
