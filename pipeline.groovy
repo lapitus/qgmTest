@@ -47,7 +47,7 @@ pipeline {
             }
         }
 
-        stage("final stage") {
+        stage("final stage2") {
             steps {
                 script {
                     println(qgManager.getFlagStatus())
