@@ -15,7 +15,7 @@ pipeline {
         }
 
 
-        stage("prl stages") {
+        stage("prl stages2") {
             parallel {
 
                 stage('make classes') {
