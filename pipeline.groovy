@@ -51,6 +51,7 @@ pipeline {
             steps {
                 script {
                     println(qgManager.getFlagStatus())
+                    bat 'echo %PATH%'
                 }
             }
         }
